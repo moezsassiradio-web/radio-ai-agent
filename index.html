@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101c2d">
+<title>Radio AI - Professional Assistant</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0c1422;color:#fff;font-family:Arial,sans-serif}
+header{background:#14243a;padding:22px 16px;text-align:center;border-bottom:1px solid #30445e}
+.logo{font-size:29px;font-weight:bold;color:#55b9ff}
+header p{font-size:12px;color:#b9cce0;margin:7px 0 0}
+main{max-width:700px;margin:auto;padding:18px}
+h2{font-size:19px}
+.subtitle{color:#a9b9ce;font-size:14px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:18px 0}
+.module{background:#192b43;border:1px solid #30445e;border-radius:12px;padding:16px 10px;color:white;text-align:center;cursor:pointer;font-size:14px}
+.module:active{background:#245078}
+.module span{display:block;font-size:25px;margin-bottom:9px}
+.chat{background:#14243a;border:1px solid #30445e;border-radius:14px;padding:14px;margin-top:20px}
+.chat h3{margin-top:0}
+select,textarea{width:100%;padding:12px;border-radius:9px;border:1px solid #40546c;background:#0c192b;color:white;margin:7px 0;font-size:15px}
+textarea{min-height:90px;resize:vertical}
+button{background:#1688d4;color:white;border:0;padding:13px;border-radius:9px;width:100%;font-weight:bold;font-size:15px;cursor:pointer}
+#answer{white-space:pre-wrap;line-height:1.8;background:#0c192b;padding:12px;border-radius:9px;margin-top:12px;display:none}
+.note{font-size:12px;color:#9eb1c9;text-align:center;margin:18px 0}
+footer{text-align:center;padding:18px;color:#8ca4bd;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">🎙️ RADIO AI</div>
+ <p>PROFESSIONAL RADIO ASSISTANT</p>
+ <p>Votre partenaire intelligent dans le monde de la radio</p>
+</header>
+<main>
+ <h2>مرحبا بيك في Radio AI</h2>
+ <p class="subtitle">مساعدك المهني في الإنتاج الإذاعي والتنشيط والصحافة والهندسة الصوتية.</p>
+
+ <h2>اختصاصات المساعد</h2>
+ <div class="grid">
+  <button class="module" onclick="choose('حضّرلي فكرة برنامج إذاعي جديد مع الفقرات والتوقيت')"><span>🎙️</span>الإنتاج الإذاعي</button>
+  <button class="module" onclick="choose('اكتبلي مقدمة إذاعية باللهجة التونسية')"><span>🎤</span>التنشيط الإذاعي</button>
+  <button class="module" onclick="choose('حضّرلي نموذج نشرة أخبار إذاعية')"><span>📰</span>الصحافة والأخبار</button>
+  <button class="module" onclick="choose('فسرلي تقنيات معالجة الصوت في Adobe Audition')"><span>🎚️</span>الهندسة الصوتية</button>
+  <button class="module" onclick="choose('حضّرلي Playlist إذاعية صباحية')"><span>🎵</span>البرمجة الموسيقية</button>
+  <button class="module" onclick="choose('اكتبلي Spot إشهاري إذاعي احترافي')"><span>📢</span>التسويق والإشهار</button>
+ </div>
+
+ <section class="chat">
+  <h3>💬 تحدث مع مساعدك الإذاعي</h3>
+  <label>لغة التواصل</label>
+  <select id="language">
+   <option>العربية الفصحى</option>
+   <option>التونسية</option>
+   <option>Français</option>
+  </select>
+  <textarea id="question" placeholder="اكتب طلبك هنا..."></textarea>
+  <button onclick="sendMessage()">إرسال الطلب</button>
+  <div id="answer"></div>
+ </section>
+ <p class="note">نسخة أولى من واجهة Radio AI · يلزم ربط محرك الذكاء الاصطناعي لتفعيل الإجابات الذكية.</p>
+</main>
+<footer>RADIO AI © 2026 · Professional Radio Assistant</footer>
+<script>
+function choose(q){
+ document.getElementById('question').value=q;
+ document.getElementById('question').focus();
+}
+function sendMessage(){
+ const q=document.getElementById('question').value.trim();
+ const a=document.getElementById('answer');
+ if(!q){alert('اكتب طلبك أولاً');return;}
+ a.style.display='block';
+ a.textContent='تم تسجيل طلبك:\n'+q+
+ '\n\nواجهة Radio AI جاهزة. المرحلة القادمة هي ربطها بمحرك ذكاء اصطناعي حتى تتمكن من الحصول على إجابات مهنية حقيقية.';
+}
+</script>
+</body>
+</html>
